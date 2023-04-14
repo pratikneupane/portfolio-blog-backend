@@ -1,0 +1,126 @@
+{
+	"info": {
+		"_postman_id": "f105782b-e84a-4584-ba66-8165153f5c8b",
+		"name": "BlogPortfolio",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26493687"
+	},
+	"item": [
+		{
+			"name": "Get All Posts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create new Post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"imageUrl\": \"https://upload.wikimedia.org/wikipedia/commons/7/75/Old_Fence_Post.JPG\",\n    \"title\": \"Sample Post\",\n    \"content\": \"Lorem Ipsum Dolor sit amet COsntrature\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update One By ID",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"imageUrl\": \"https://upload.wikimedia.org/wikipedia/commons/7/75/Old_Fence_Post.JPG\",\n    \"title\": \"X Post\",\n    \"content\": \"Lorem Ipsum Dolor sit amet COsntrature\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/posts/6439266f4238df84f3c9c8dd",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"posts",
+						"6439266f4238df84f3c9c8dd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get One Post By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/posts/6439266f4238df84f3c9c8dd",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"posts",
+						"6439266f4238df84f3c9c8dd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete One By ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/posts/6439266f4238df84f3c9c8dd",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"posts",
+						"6439266f4238df84f3c9c8dd"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
