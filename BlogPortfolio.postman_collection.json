@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "f105782b-e84a-4584-ba66-8165153f5c8b",
+		"_postman_id": "c58f0cea-2591-426e-85f1-7fff26d96212",
 		"name": "BlogPortfolio",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "26493687"
+		"_exporter_id": "19253450"
 	},
 	"item": [
 		{
@@ -32,7 +32,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"imageUrl\": \"https://upload.wikimedia.org/wikipedia/commons/7/75/Old_Fence_Post.JPG\",\n    \"title\": \"Sample Post\",\n    \"content\": \"Lorem Ipsum Dolor sit amet COsntrature\"\n}",
+					"raw": "{\n    \"imageUrl\": \"https://upload.wikimedia.org/wikipedia/commons/7/75/Old_Fence_Post.JPG\",\n    \"title\": \"Post\",\n    \"content\": \"Lorem Ipsum Dolor sit amet COsntrature\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -60,7 +60,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"imageUrl\": \"https://upload.wikimedia.org/wikipedia/commons/7/75/Old_Fence_Post.JPG\",\n    \"title\": \"X Post\",\n    \"content\": \"Lorem Ipsum Dolor sit amet COsntrature\"\n}\n",
+					"raw": "{\n    \"imageUrl\": \"https://upload.wikimedia.org/wikipedia/commons/7/75/Old_Fence_Post.JPG\",\n    \"title\": \"Not a Post\",\n    \"content\": \"Lorem Ipsum Dolor sit amet COsntrature\"\n}\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -68,7 +68,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/posts/6439266f4238df84f3c9c8dd",
+					"raw": "http://localhost:5000/posts/6452566e1eed9b1c8f99d275",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -76,7 +76,7 @@
 					"port": "5000",
 					"path": [
 						"posts",
-						"6439266f4238df84f3c9c8dd"
+						"6452566e1eed9b1c8f99d275"
 					]
 				}
 			},
@@ -84,9 +84,16 @@
 		},
 		{
 			"name": "Get One Post By ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "http://localhost:5000/posts/6439266f4238df84f3c9c8dd",
 					"protocol": "http",
@@ -117,6 +124,62 @@
 					"path": [
 						"posts",
 						"6439266f4238df84f3c9c8dd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"pratikneupane@proton.me\",\n  \"password\": \"yourpassword\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Pratik Neupane\",\n  \"email\": \"pratikneupane@proton.me\",\n  \"password\": \"yourpassword\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"register"
 					]
 				}
 			},

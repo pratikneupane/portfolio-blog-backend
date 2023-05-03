@@ -3,6 +3,8 @@ import cors from "cors";
 import dotenv from "dotenv";
 import connectDB from "./config/db";
 import postsRouter from './routes/posts';
+import loginRoutes from './routes/login';
+import registerRoutes from './routes/register';
 
 dotenv.config();
 
@@ -13,6 +15,8 @@ app.use(express.json());
 
 // Routes
 app.use('/posts', postsRouter);
+app.use('/login', loginRoutes);
+app.use('/register', registerRoutes);
 
 const port = process.env.PORT || 5000;
 
