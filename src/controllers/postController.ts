@@ -73,7 +73,6 @@ export const updatePostById = async (req: Request, res: Response) => {
 };
 
 // DELETE post by id
-
 export const deletePostById = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
