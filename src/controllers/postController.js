@@ -1,19 +1,18 @@
-import { Request, Response } from "express";
-import Post from "../models/post";
+import Post from "../models/post.js";
 
 // GET all posts
-export const getAllPosts = async (req: Request, res: Response) => {
+export const getAllPosts = async (req, res) => {
   try {
     const posts = await Post.find().sort({ createdAt: -1 });
     res.json(posts);
-  } catch (err: any) {
+  } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
   }
 };
 
 // POST a new post
-export const createPost = async (req: Request, res: Response) => {
+export const createPost = async (req, res) => {
   try {
     const { imageUrl, title, content } = req.body;
 
@@ -26,21 +25,21 @@ export const createPost = async (req: Request, res: Response) => {
     const post = await newPost.save();
 
     res.json(post);
-  } catch (err: any) {
+  } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
   }
 };
 
 // GET a post by id
-export const getPostById = async (req: Request, res: Response) => {
+export const getPostById = async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
     if (!post) {
       return res.status(404).json({ msg: "Post not found" });
     }
     res.json(post);
-  } catch (err: any) {
+  } catch (err) {
     console.error(err.message);
     if (err.kind === "ObjectId") {
       return res.status(404).json({ msg: "Post not found" });
@@ -50,7 +49,7 @@ export const getPostById = async (req: Request, res: Response) => {
 };
 
 // PUT update post by ID
-export const updatePostById = async (req: Request, res: Response) => {
+export const updatePostById = async (req, res) => {
   try {
     const { id } = req.params;
     const { imageUrl, title, content } = req.body;
@@ -66,14 +65,14 @@ export const updatePostById = async (req: Request, res: Response) => {
     }
 
     res.json(updatedPost);
-  } catch (err: any) {
+  } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
   }
 };
 
 // DELETE post by id
-export const deletePostById = async (req: Request, res: Response) => {
+export const deletePostById = async (req, res) => {
   try {
     const { id } = req.params;
     const post = await Post.findById(id);
@@ -84,7 +83,7 @@ export const deletePostById = async (req: Request, res: Response) => {
 
     await Post.deleteOne({ _id: id });
     res.json({ msg: "Post deleted" });
-  } catch (err: any) {
+  } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
   }

@@ -1,22 +1,7 @@
 import jwt from "jsonwebtoken";
-import { Request, Response, NextFunction } from "express";
 import dotenv from "dotenv";
 dotenv.config();
-
-interface UserPayload {
-  userId: string;
-  email: string;
-}
-
-declare global {
-  namespace Express {
-    interface Request {
-      user?: UserPayload;
-    }
-  }
-}
-
-const verifyToken = (req: Request , res: Response, next: NextFunction) => {
+const verifyToken = (req , res, next) => {
   const token =
     req.body.token || req.query.token || req.headers["authorization"];
 
@@ -29,7 +14,7 @@ const verifyToken = (req: Request , res: Response, next: NextFunction) => {
   }
   
   try {
-    const decoded = jwt.verify(token.substr(7), process.env.JWT_SECRET!) as UserPayload;
+    const decoded = jwt.verify(token.substr(7), process.env.JWT_SECRET);
     req.user = decoded;
   } catch (err) {
     return res.status(401).send("Invalid Token");

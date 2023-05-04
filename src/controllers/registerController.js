@@ -1,12 +1,12 @@
 import express from "express";
 import bcrypt from "bcrypt";
-import { User } from "../models/user";
+import { User } from "../models/user.js";
 import dotenv from "dotenv";
 dotenv.config();
 
 const registerController = async (
-  req: express.Request,
-  res: express.Response
+  req,
+  res
 ) => {
   try {
     const { name, email, password } = req.body;

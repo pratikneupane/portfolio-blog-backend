@@ -1,11 +1,11 @@
 import express from "express";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import { User } from "../models/user";
+import { User } from "../models/user.js";
 import dotenv from "dotenv";
 dotenv.config();
 
-const loginController = async (req: express.Request, res: express.Response) => {
+const loginController = async (req, res) => {
   try {
     const { email, password } = req.body;
     // Find the user by email
@@ -21,7 +21,7 @@ const loginController = async (req: express.Request, res: express.Response) => {
     // Generate a JWT token with the user ID and email as payload
     const token = jwt.sign(
       { userId: user._id, email: user.email },
-      process.env.JWT_SECRET!
+      process.env.JWT_SECRET
     );
     res.json({ token });
   } catch (error) {

@@ -1,10 +1,10 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import connectDB from "./config/db";
-import postsRouter from './routes/posts';
-import loginRoutes from './routes/login';
-import registerRoutes from './routes/register';
+import connectDB from "./config/db.js";
+import postsRouter from './routes/posts.js';
+import loginRoutes from './routes/login.js';
+import registerRoutes from './routes/register.js';
 
 dotenv.config();
 
