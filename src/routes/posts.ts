@@ -1,5 +1,6 @@
 import express from "express";
 import { getAllPosts, createPost, getPostById, updatePostById, deletePostById } from "../controllers/postController";
+import verifyToken from "../middleware/auth";
 
 const router = express.Router();
 
@@ -13,9 +14,9 @@ router.get('/:id', getPostById);
 router.post('/', createPost);
 
 // PUT update a post by id
-router.put('/:id', updatePostById);
+router.put('/:id',verifyToken, updatePostById);
 
 // DELETE delete a post by id
-router.delete('/:id', deletePostById);
+router.delete('/:id',verifyToken, deletePostById);
 
 export default router;
