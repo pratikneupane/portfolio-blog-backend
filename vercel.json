@@ -1,0 +1,17 @@
+{
+    "builds": [
+      {
+        "src": "index.ts",
+        "use": "@vercel/node",
+        "config": {
+          "maxLambdaSize": "50mb"
+        },
+        "build": {
+          "src": "index.ts",
+          "output": "public",
+          "command": "yarn build"
+        }
+      }
+    ]
+  }
+  
