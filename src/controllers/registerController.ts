@@ -1,6 +1,5 @@
 import express from "express";
 import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
 import { User } from "../models/user";
 import dotenv from "dotenv";
 dotenv.config();
@@ -23,7 +22,7 @@ const registerController = async (
     await user.save();
     res.json({ message: "User registered successfully" });
   } catch (error) {
-    res.status(500).json({ error: "Internal server error" });
+    res.status(500).json({error: error});
   }
 };
 

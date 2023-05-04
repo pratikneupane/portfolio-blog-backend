@@ -11,7 +11,7 @@ router.get('/', getAllPosts);
 router.get('/:id', getPostById);
 
 // POST create a new post
-router.post('/', createPost);
+router.post('/', verifyToken, createPost);
 
 // PUT update a post by id
 router.put('/:id',verifyToken, updatePostById);
