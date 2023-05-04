@@ -5,6 +5,8 @@ import connectDB from "./config/db.js";
 import postsRouter from './routes/posts.js';
 import loginRoutes from './routes/login.js';
 import registerRoutes from './routes/register.js';
+import swaggerUi from 'swagger-ui-express';
+import swaggerDocument from './docs/swagger.json' assert { type: "json" };
 
 dotenv.config();
 
@@ -14,9 +16,10 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
-app.use('/posts', postsRouter);
-app.use('/login', loginRoutes);
-app.use('/register', registerRoutes);
+app.use('/api', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use('/api/posts', postsRouter);
+app.use('/api/login', loginRoutes);
+app.use('/api/register', registerRoutes);
 
 const port = process.env.PORT || 5000;
 
