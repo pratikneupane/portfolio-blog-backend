@@ -52,7 +52,7 @@
     }
   },
   "paths": {
-    "/posts": {
+    "/api/posts": {
       "get": {
         "tags": ["Posts"],
         "summary": "Get all posts",
@@ -87,7 +87,7 @@
         ]
       }
     },
-    "/posts/{postId}": {
+    "/api/posts/{postId}": {
       "get": {
         "tags": ["Posts"],
         "summary": "Get a post by ID",
@@ -166,7 +166,7 @@
         ]
       }
     },
-    "/login": {
+    "/api/login": {
       "post": {
         "summary": "Authenticate user and return JWT token",
         "tags": ["Authentication"],
@@ -245,7 +245,7 @@
         }
       }
     },
-    "/register": {
+    "/api/register": {
       "post": {
         "tags": ["Authentication"],
         "summary": "Register a new user",
